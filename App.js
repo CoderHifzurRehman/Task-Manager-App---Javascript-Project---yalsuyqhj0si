@@ -116,10 +116,15 @@ function createTodo() {
   overlay.classList.remove("active");
 
   const myBtn = document.createElement("button");
-  myBtn.innerHTML="+Comments";
+  myBtn.innerHTML="+";
   myBtn.setAttribute('class', 'descnBtn');
   todo_div.appendChild(myBtn);
-  
+
+  // const myBtn1 = document.createElement("button");
+  // myBtn1.innerHTML="edit";
+  // myBtn.setAttribute('class', 'descnBtn1');
+  // todo_div.appendChild(myBtn1);
+  // $(this).parent().find('.descnBtn1').hide();
 }
 
 $(document).on('click','.descnBtn',function(){
@@ -133,6 +138,8 @@ $(document).on('click','.addDescnBtn',function(){
 	$(this).parent().append(description);
 	$(this).parent().find('.descn_text').hide();
 	$(this).parent().find('.addDescnBtn').hide();
+  $(this).parent().find('.descnBtn').hide();
+  // $(this).parent().find('.descnBtn1').display();
 });
 
 
