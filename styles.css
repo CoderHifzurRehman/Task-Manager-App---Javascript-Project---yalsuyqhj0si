@@ -57,7 +57,8 @@
   }
   
   .todo {
-    display: flex;
+    display: block;
+    overflow-wrap: break-word;
     justify-content: space-between;
     align-items: center;
     position: relative;
@@ -155,3 +156,16 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
     font-size: 1.25rem;
     border: none;
   }
+
+  .descnBtn {
+    position: absolute;
+    right: -12px;
+    top: -7px;
+}
+
+.todo p {
+  display: list-item;
+    margin-left: 18px;
+    text-align: justify;
+    font-size: 18px;
+}
