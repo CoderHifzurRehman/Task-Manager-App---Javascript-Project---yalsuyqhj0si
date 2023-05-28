@@ -33,6 +33,9 @@
       <button id="add_btn" data-target-modal="#todo_form">Add Task</button>
 
       <div class="todo" draggable="true">
+          <div id="progress-bar" class="progress-bar">
+            <div class="progress"></div>
+          </div>
           <h3 class="t_head">Buy a Pizza</h3>
           <p class="descp">Description</p>
           <!-- <button id="add_desc" data-target-modal="#todo_form">+ Add Todo</button> -->
@@ -41,13 +44,13 @@
           <span class="close">&times;</span>
         </div>
     </div>
-    <div class="status">
+    <div class="status" id="progress_status">
       <h1>In Progress</h1>
     </div>
-    <div class="status">
+    <div class="status" id="review_status">
       <h1>In Review</h1>
     </div>
-    <div class="status">
+    <div class="status" id="done_status">
       <h1>Done</h1>
     </div>
   </div>

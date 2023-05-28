@@ -2,6 +2,8 @@ const todos = document.querySelectorAll(".todo");
 const all_status = document.querySelectorAll(".status");
 let draggableTodo = null;
 
+
+
 todos.forEach((todo) => {
   todo.addEventListener("dragstart", dragStart);
   todo.addEventListener("dragend", dragEnd);
@@ -9,6 +11,8 @@ todos.forEach((todo) => {
 
 function dragStart() {
   draggableTodo = this;
+  progress = this.document.querySelector(".progress");
+  console.log(progress);
   setTimeout(() => {
     this.style.display = "none";
   }, 0);
@@ -48,6 +52,19 @@ function dragLeave() {
 function dragDrop() {
   this.style.border = "none";
   this.appendChild(draggableTodo);
+  progress = draggableTodo.children[0].children[0];;
+  if(this==open_status){
+    progress.style.width ="25%";
+  }
+  else if(this==progress_status){
+    progress.style.width ="50%";
+  }
+  else if(this==review_status){
+    progress.style.width ="75%";
+  }
+  else if(this==done_status){
+    progress.style.width ="100%";
+  }
   console.log("dropped");
 }
 
@@ -89,19 +106,26 @@ function createTodo() {
   const todo_div = document.createElement("div");
   const todo_p = document.createElement("p");
   const todo_h = document.createElement("h3");
+  const todo_progressBar = document.createElement("div");
+  const todo_progress = document.createElement("div");
+  
   const input_val = document.getElementById("todo_input").value;
   const input_val2 = document.getElementById("descn_input").value;
   const txt = document.createTextNode(input_val);
   const txt2 = document.createTextNode(input_val2);
 
 
+  todo_div.appendChild(todo_progressBar);
   todo_div.appendChild(todo_h);
   todo_h.appendChild(txt);
   todo_div.appendChild(todo_p);
   todo_p.appendChild(txt2);
+  todo_progressBar.appendChild(todo_progress);
   todo_div.classList.add("todo");
   todo_h.classList.add("t_head");
   todo_p.classList.add("descp");
+  todo_progressBar.classList.add("progress-bar");
+  todo_progress.classList.add("progress");
   todo_div.setAttribute("draggable", "true");
 
   /* create span */
@@ -122,6 +146,9 @@ function createTodo() {
   todo_div.appendChild(time_span);
 
   open_status.appendChild(todo_div);
+  const todoHTML = todo_div.outerHTML;
+
+  
 
 
   span.addEventListener("click", () => {
@@ -146,5 +173,6 @@ close_btns.forEach((btn) => {
     btn.parentElement.style.display = "none";
   });
 });
+
 
 
