@@ -302,17 +302,18 @@ body {
 }
 
 @media (max-width: 991px) {
-  .todo-container{
-    min-width: 990px;
-  }
-  body{
+  /* .todo-container{
+    min-width: 880px;
+  } */
+  /* body{
     min-width: 991px;
-  }
+  } */
 
   .status {
     /* width: 418px; */
-    /* height: 50vh;
-    max-height: 50vh; */
+     height: 45vh;
+    max-height: 45vh; 
+    min-height: 45vh;
     position: relative;
     /* margin: 0px 5px; */
     box-shadow: 1px 1px 18px 3px #23697d;
