@@ -1,24 +1,24 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="styles.css" />
   <title>Task Manager App</title>
 </head>
 
 <body>
   <!-- modal -->
-  <div class="modal" id="todo_form">
+  <div class="modals" id="todo_form">
     <div class="header">
       <div class="title">Add Task</div>
       <button class="btn close-modal">&times;</button>
     </div>
     <div class="body">
-      <input type="text" id="todo_input"  placeholder="Task Title"/>
-      <input type="text" id="descn_input" placeholder="Task Description"/>
+      <input type="text" id="todo_input" placeholder="Task Title" />
+      <input type="text" id="descn_input" placeholder="Task Description" />
       <input type="submit" value="Add Todo" id="todo_submit" />
     </div>
   </div>
@@ -27,31 +27,34 @@
 
 
   <!-- todo -->
-  <div class="todo-container">
-    <div class="status" id="open_status">
+  <div class="todo-container d-flex justify-content-center ml-0 mr-0">
+    <div class="row w-100">
+    <div class="status   col-lg-3 col-md-6 col-sm-6 col-6" id="open_status">
       <h1>Open</h1>
       <button id="add_btn" data-target-modal="#todo_form">Add Task</button>
 
       <div class="todo" draggable="true">
-          <div id="progress-bar" class="progress-bar">
-            <div class="progress"></div>
-          </div>
-          <h3 class="t_head">Buy a Pizza</h3>
-          <p class="descp">Description</p>
-          <!-- <button id="add_desc" data-target-modal="#todo_form">+ Add Todo</button> -->
-          <span class="time">3/4/2023 2:42PM</span>
-          
-          <span class="close">&times;</span>
+        <div id="progress-bar" class="progress-bar">
+          <div class="progress"></div>
         </div>
+        <h3 class="t_head">Buy a Pizza</h3>
+        <p class="descp">Description</p>
+        <!-- <button id="add_desc" data-target-modal="#todo_form">+ Add Todo</button> -->
+        <span class="time">3/4/2023 2:42PM</span>
+
+        <span class="close">&times;</span>
+      </div>
     </div>
-    <div class="status" id="progress_status">
+    <div class="status  col-lg-3 col-md-6 col-sm-6 col-6" id="progress_status">
       <h1>In Progress</h1>
     </div>
-    <div class="status" id="review_status">
+    <div class="status  col-lg-3 col-md-6 col-sm-6 col-6" id="review_status">
       <h1>In Review</h1>
     </div>
-    <div class="status" id="done_status">
+    <div class="status  col-lg-3 col-md-6 col-sm-6 col-6" id="done_status">
       <h1>Done</h1>
+      <button id="delete_btn" >Delete Completed Tasks</button>
+    </div>
     </div>
   </div>
 
