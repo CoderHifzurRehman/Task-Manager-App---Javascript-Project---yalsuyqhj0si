@@ -302,8 +302,11 @@ body {
 }
 
 @media (max-width: 991px) {
-  body{
+  .todo-container{
     min-width: 990px;
+  }
+  body{
+    min-width: 991px;
   }
 
   .status {
