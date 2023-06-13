@@ -9,6 +9,7 @@ body {
   justify-content: center;
   align-items: center;
   background: #d0d0d0;
+  
 }
 
 
@@ -20,13 +21,40 @@ body {
 }
 
 .status {
-  width: 25%;
-  min-height: 80vh;
-  background-color: #f5eae8;
+  /* width: 25%; */
+  height: 100vh;
+
+  min-height: 100vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  background-color: #f8f9fa;
   position: relative;
-  padding: 60px 1rem 0.5rem;
-  margin: 0px 15px;
+  padding: 0px 0 0.5rem;
+  margin: 5px 0px;
   box-shadow: 1px 1px 28px 3px #23697d;
+  text-align: center;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: grey; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: grey; 
 }
 
 /* .status:nth-child(even) {
@@ -39,15 +67,31 @@ body {
     top: 30px;
     width: 100%;
     background-color: black;
+    
   }
+  :root {
+    --my-start-width: 0;
+    --my-end-width: 25%;
+}
+
+@keyframes progressBar {
+    0% { width: var(--my-start-width); }
+    100% { width: var(--my-end-width); }
+}
+
+
   .progress{
     border-radius: 15px;
     width: 25%;
     height: 20px;
-    background-color: green;
+    animation: progressBar 1.5s ease-in-out;
+    background-color: red;
+    box-shadow: 1px 1px 18px 0px grey;
   }
+  
 .status h1 {
-  position: absolute;
+  position: sticky;
+  z-index: 1;
   font-family: cursive;
   font-size: 33px;
   top: 0;
@@ -61,18 +105,38 @@ body {
 
 #add_btn {
   padding: 0.5rem 1rem;
-  background-color: #ccc;
-  outline: none;
-  border: none;
-  width: 100%;
-  font-size: 1.5rem;
-  margin: 0.5rem 0;
-  border-radius: 4px;
-  cursor: pointer;
+    position: relative;
+    background-color: #ccc;
+    outline: none;
+    left: 0;
+    border: none;
+    width: 95%;
+    font-size: 1.5rem;
+    margin: 8px 0px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#delete_btn {
+  padding: 0.5rem 1rem;
+    position: relative;
+    background-color: #ccc;
+    outline: none;
+    left: 0;
+    border: none;
+    width: 95%;
+    font-size: 1.5rem;
+    margin: 8px 0px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 #add_btn:hover {
-  background-color: #aaa;
+  background-color: green;
+  color: white;
+}
+#delete_btn:hover{
+  background-color: #ff0000;
+  color: white;
 }
 
 .todo {
@@ -87,13 +151,14 @@ body {
   border-radius: 4px;
   padding: 0.5rem 1rem;
   font-size: 1.5rem;
-  margin: 0.5rem 0;
-  background: rgba(255, 255, 255, 0.25);
+  margin: 0.5rem 13px;
+  background: #fff;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+  border-left: 5px solid red;
 }
 
 
@@ -118,7 +183,7 @@ body {
   font-size: 1.5rem;
 }
 
-.modal {
+.modals {
   width: 20%;
   position: fixed;
   top: -50%;
@@ -132,11 +197,11 @@ body {
   box-shadow: 5px 5px 5px 5px #1a1a4687;
 }
 
-.modal.active {
+.modals.active {
   top: 50%;
 }
 
-.modal .header {
+.modals .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -145,7 +210,7 @@ body {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-.modal .body {
+.modals .body {
   padding: 0.75rem;
 }
 
@@ -219,6 +284,7 @@ body {
   overflow-wrap: anywhere;
   text-transform: uppercase;
   text-align: center;
+  margin-top: 58px;
 }
 
 .descp {
@@ -235,9 +301,30 @@ body {
   justify-content: center;
 }
 
+@media (max-width: 991px) {
+  body{
+    min-width: 990px;
+  }
+
+  .status {
+    /* width: 418px; */
+    /* height: 50vh;
+    max-height: 50vh; */
+    position: relative;
+    /* margin: 0px 5px; */
+    box-shadow: 1px 1px 18px 3px #23697d;
+  }
 
 
-@media (max-width: 968px) {
+
+
+  .modals {
+    width: 78%;
+  }
+}
+
+
+/* @media (max-width: 968px) {
   .todo-container {
     width: 100%;
     display: flex;
@@ -250,7 +337,6 @@ body {
   .status {
     width: 418px;
     min-height: 50vh;
-    /* background-color: #f5eae8; */
     position: relative;
     padding: 60px 1rem 0.5rem;
     margin: 0px 5px;
@@ -340,7 +426,6 @@ body {
   .status {
     width: 258px;
     min-height: 50vh;
-    /* background-color: #f5eae8; */
     position: relative;
     padding: 60px 1rem 0.5rem;
     margin: 0px 5px;
@@ -430,7 +515,6 @@ body {
   .status {
     width: 198px;
     min-height: 50vh;
-    /* background-color: #f5eae8; */
     position: relative;
     padding: 60px 1rem 0.5rem;
     margin: 0px 5px;
@@ -504,8 +588,6 @@ body {
 }
 
 
-/*Bootstrap css and nav bar 
-*/
 
 
 @media (max-width: 430px) {
@@ -521,7 +603,6 @@ body {
   .status {
     width: 173px;
     min-height: 50vh;
-    /* background-color: #f5eae8; */
     position: relative;
     padding: 60px 1rem 0.5rem;
     margin: 0px 5px;
@@ -609,7 +690,6 @@ body {
   .status {
     width: 160px;
     min-height: 50vh;
-    /* background-color: #f5eae8; */
     position: relative;
     padding: 60px 1rem 0.5rem;
     margin: 0px 5px;
@@ -682,4 +762,4 @@ body {
     width: 78%;
   }
 }
-
+ */
